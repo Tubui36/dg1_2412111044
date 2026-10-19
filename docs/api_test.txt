@@ -1,0 +1,97 @@
+### 1. GET /api/health
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 39
+Connection: close
+
+{"status":"ok","student":"2412111044"}
+
+
+### 2. GET /api/students
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 491
+Connection: close
+
+[{"diem":8.5,"ho_ten":"B\u00f9i \u0110\u00ecnh T\u00fa","id":1,"lop":"CT2801","mssv":"2412111044"},{"diem":7.0,"ho_ten":"Nguy\u1ec5n V\u0103n T\u01b0\u1eddng","id":2,"lop":"CT2801","mssv":"2412111001"},{"diem":9.0,"ho_ten":"Ng\u00f4 th\u00e0nh An","id":3,"lop":"CT2801","mssv":"2412111002"},{"diem":6.5,"ho_ten":"Nguy\u1ec5n \u0110\u1ee9c Thi\u1ec7n","id":4,"lop":"CT2801","mssv":"2412111003"},{"diem":8.0,"ho_ten":"Tr\u1ea7n Xu\u00e2n B\u00e1ch","id":5,"lop":"CT2801","mssv":"2412111004"}]
+
+
+### 3. GET /api/students?lop=CT2801
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 491
+Connection: close
+
+[{"diem":8.5,"ho_ten":"B\u00f9i \u0110\u00ecnh T\u00fa","id":1,"lop":"CT2801","mssv":"2412111044"},{"diem":7.0,"ho_ten":"Nguy\u1ec5n V\u0103n T\u01b0\u1eddng","id":2,"lop":"CT2801","mssv":"2412111001"},{"diem":9.0,"ho_ten":"Ng\u00f4 th\u00e0nh An","id":3,"lop":"CT2801","mssv":"2412111002"},{"diem":6.5,"ho_ten":"Nguy\u1ec5n \u0110\u1ee9c Thi\u1ec7n","id":4,"lop":"CT2801","mssv":"2412111003"},{"diem":8.0,"ho_ten":"Tr\u1ea7n Xu\u00e2n B\u00e1ch","id":5,"lop":"CT2801","mssv":"2412111004"}]
+
+
+### 4. GET /api/students/1
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 98
+Connection: close
+
+{"diem":8.5,"ho_ten":"B\u00f9i \u0110\u00ecnh T\u00fa","id":1,"lop":"CT2801","mssv":"2412111044"}
+
+
+### 5. GET /api/students/999 (mong doi 404)
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 22
+Connection: close
+
+{"error":"not found"}
+
+
+### 6. POST thieu truong (mong doi 400)
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: close
+
+{"error":"thieu truong ho_ten"}
+
+
+### 7. POST diem=11 (mong doi 400)
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 40
+Connection: close
+
+{"error":"diem phai trong khoang 0-10"}
+
+
+### 8. POST hop le (mong doi 201)
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 89
+Connection: close
+
+{"diem":8.0,"ho_ten":"Ho\u00e0ng V\u0103n Em","id":6,"lop":"CT2801","mssv":"2412111005"}
+
+
+### 9. GET lai danh sach sau khi them
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Mon, 19 Oct 2026 00:39:07 GMT
+Content-Type: application/json
+Content-Length: 580
+Connection: close
+
+[{"diem":8.5,"ho_ten":"B\u00f9i \u0110\u00ecnh T\u00fa","id":1,"lop":"CT2801","mssv":"2412111044"},{"diem":7.0,"ho_ten":"Nguy\u1ec5n V\u0103n T\u01b0\u1eddng","id":2,"lop":"CT2801","mssv":"2412111001"},{"diem":9.0,"ho_ten":"Ng\u00f4 th\u00e0nh An","id":3,"lop":"CT2801","mssv":"2412111002"},{"diem":6.5,"ho_ten":"Nguy\u1ec5n \u0110\u1ee9c Thi\u1ec7n","id":4,"lop":"CT2801","mssv":"2412111003"},{"diem":8.0,"ho_ten":"Tr\u1ea7n Xu\u00e2n B\u00e1ch","id":5,"lop":"CT2801","mssv":"2412111004"},{"diem":8.0,"ho_ten":"Ho\u00e0ng V\u0103n Em","id":6,"lop":"CT2801","mssv":"2412111005"}]
