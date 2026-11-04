@@ -2,6 +2,7 @@ import json, os
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
+app.json.ensure_ascii = False
 DATA = os.path.join(os.path.dirname(__file__), "data", "students.json")
 MSSV = os.environ.get("MSSV", "2412111044")
 
