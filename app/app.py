@@ -17,7 +17,7 @@ def save(items):
 @app.route("/")
 def index():
     return render_template("index.html", students=load(),
-                           title="DG1 – Bùi Đình Tú – 2412111044")
+                           title="Quản lý sinh viên")
 
 @app.route("/api/health")
 def health():
